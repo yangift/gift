@@ -67,6 +67,11 @@
             position: absolute;
             text-align: center;
         }
+		.music{
+			margin: 0 auto;
+			position: absolute;
+            text-align: right;
+		}
         .text {
             position: fixed;
             bottom: 80px;
@@ -87,12 +92,14 @@
 
 <body>
 <!--//音乐可改-->
-<audio autoplay="autoplay" loop="loop">
+<audio  id="music01" autoplay="autoplay" loop="loop">
     <source src="mu.mp3">
 </audio>
+
 <!--&lt;!&ndash;更改为你女朋友的头像&ndash;&gt;-->
 <div class="cs">
     <img src="rz.jpg" id="logo">
+	<div onclick="javascript:playPause();" style="float:right" ><img  src="1.png" width="50" height="50" id="music_btn01" border="0" ></div>
 </div>
 <canvas class="canvas" width="1820" height="905"></canvas>
 <p class="text" style="color: #ed3073;">
@@ -123,6 +130,18 @@
         
     }
     show_date_time();
+	function playPause() {
+	var music = document.getElementById('music01');
+	var music_btn = document.getElementById('music_btn01');
+	if (music.paused){
+	music.play();
+	music_btn.src = '2.png'; //播放图片
+	}
+	else{
+	music.pause();
+	music_btn.src = '1.png'; //暂停图片
+	}
+	}
 </script>
 <script>
     var S = {
